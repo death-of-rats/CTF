@@ -7,17 +7,17 @@
 >
 > ```nc crypto2.ctf.nullcon.net 5000```
 >
-> file: lfe.py
+> file: [lfe.py](lfe.py)
 
 ### Solution
 
-Lets analyze server code. Two 128bit numbers *a*, *b* are generated. Then we get 128 ```cs``` random values that constrains our input *(g, y0, y1)*:
+Let us analyze the server code. Two 128bit numbers *a*, *b* are generated. Then we get 128 ```cs``` random values that constrain our input *(g, y0, y1)*:
 
 ```math
 (y0 * y1) % p == cs
 ```
 
-Ok, so what happen to out input? For every set program get random 2 numbers r0, r1 (mod p). Calculate and return to us *(c0, c1)*:
+Ok, so what happens to out input? For every set, the program gets random 2 numbers r0, r1 (mod p). Calculate and return to us *(c0, c1)*:
 ```math
 m0 = b[i]
 m1 = (a[i] + b[i]) % 2

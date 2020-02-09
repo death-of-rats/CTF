@@ -7,11 +7,11 @@
 > 
 > nc crypto1.ctf.nullcon.net 5000
 > 
-> file: rps.py
+> file: [rps.py](rps.py)
 
 ### Solution
 
-The story is: every turn the program choose random 16 bytes and adds *move* and calculate the hash. This 3 hashes are shuffled and served to us in final order. Let us analyse hash method: 
+The story is in every turn, the program chooses random 16 bytes and adds *move* and calculates the hash. These 3 hashes are shuffled and served to us in the final order. Let us analyze the hash method: 
 
 ```python
 def hash(data):
@@ -30,9 +30,9 @@ def hash(data):
     return hex(bytes_to_int(state))[2:]
 ```
 
-Our data is allways *[16b secret][1b move]*, so after padding: *[16b secret][1b move][15b * \x0f]*. This is split to 16b parts (roundkeys). First part is out secret, but the second can be one of 3: 
+Our data is always *[16b secret][1b move]*, so after padding: *[16b secret][1b move][15b * \x0f]*. This is split into 16b parts (roundkeys). First part is out secret, but the second can be one of 3: 
 ```b'r'+15*b'\x0f'```, ```b'p'+15*b'\x0f'``` or ```b's'+15*b'\x0f'```.
-For every move fisrt 16b are the same so first iteration of hash calculation per group (roundkey) gives us the same ```status value```. Then our paths split. But nothing fancy all operation can be reversed till this point. So I 'half'-reverse calculations for each of 3 movements. 
+For every *move*, the first 16b are the same, so the first iteration of hash calculation per group (roundkey) gives us the same ```status value```. Then our paths split. But nothing fancy all operation can be reversed till this point. So I 'half'-reverse calculations for each of 3 movements. 
 
 ```python
 ...
@@ -55,7 +55,7 @@ def revert(hash: str, proposal_key: bytes):
 ...
 ```
 
-So for every given hash, I get 3 proposition (*move*, ```state``` after hashing unknown secret part). I need only to find ```state``` value between hashes.
+So for every given hash, I get 3 propositions (*move*, ```state``` after hashing unknown secret part). I need only to find ```state``` value between hashes.
 
 ```python
 ...
