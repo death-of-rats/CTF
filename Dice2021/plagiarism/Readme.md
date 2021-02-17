@@ -1,6 +1,6 @@
 # plagiarism
 
-I didn't solve this challenge. After CTF I read the writeup and mentioned in it article and implement GDC in python with SageMath.
+I didn't solve this challenge. After the CTF I read the writeup and the article and implement GDC in python with SageMath.
 
 ## Challenge
 
