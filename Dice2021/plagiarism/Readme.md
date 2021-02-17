@@ -48,7 +48,7 @@ f = P<sub>1</sub><sup>e</sup> mod(N) - C<sub>1</sub>
 
 g = (P<sub>1</sub>+&delta;)<sup>e</sup> mod(N) - C<sub>2</sub>
 
-Calculating **GCD(f,g)** will give us common dividor **a \* P<sub>1</sub> - b** so **P<sub>1</sub> = <sup>b</sup>&frasl;<sub>a</sub>**.
+Calculating **GCD(f,g)** will give us common dividor **a \* P<sub>1</sub> + b** so **P<sub>1</sub> = <sup>-b</sup>&frasl;<sub>a</sub>**.
 
 ```python
 
