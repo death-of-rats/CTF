@@ -16,7 +16,7 @@ After simple transformations one has:
 
 <img src="https://render.githubusercontent.com/render/math?math=n_i%20-%201%20%3D%202%5C%20prime512%5C%20%282%5C%20prime512%5C%20p_i%5C%20q_i%20%2B%20p_i%2Bq_i%29" />
 
-So both n have prime512 as a common dividor. We can calculate it by geting 512-bit prime factor of `gcd`:
+So both n have prime512 as a common divisor. We can calculate it by geting 512-bit prime factor of `gcd`:
 
 ```python3
 dividors = factor( gcd(n1-1,n2-1))
