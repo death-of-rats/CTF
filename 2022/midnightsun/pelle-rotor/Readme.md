@@ -20,7 +20,7 @@ The script allows us the opportunity to encrypt our messages using d, the modula
 How to find N?
 $$ c_1\ c_2 = m_1^d\ m_2^d = (m_1\ m_2)^d = c_3 $$
 For modulo operation:
-$$ (m_1^d)\ \% N\ (m_2^d)\ \%N = (m_1\ m_2)^d\ \%N + kN $$
+$$ (m_1^d)\ mod\  N\ (m_2^d)\ mod\ N = (m_1\ m_2)^d\ mod\ N + kN $$
 $$ c_1\ c_2 - c_3 =  kN $$
 
 If we choose good messages so that $c_1\ c_2 > N$.
@@ -39,7 +39,7 @@ $$ d_{i+1} = 10\ d_r + digit $$
 $$ c_{i} = msg^{d_{i}} = msg^{digit\ 10^{digitCount-1}}\ msg^{d_r} $$
 $$ c_{i+1} = msg^{d_{i+1}} = msg^{10\ d_r}\ msg^{digit} $$
 $msg^{digit}$ for small msg is so small that iterating we can find $k$ that would fullfill condition:
-$$ c_{i+1} + kN\ \% msg^{digit} == 0 $$
+$$ c_{i+1} + kN\ mod\  msg^{digit} == 0 $$
 and next:
 $$ msg^{10\ d_r} = \frac{ c_{i+1}+kN}{msg^{digit}} $$
 Using $c_1$ to 10th power (**all modulo N**) we can compare cipher with out calculation for choosen $digit$:
