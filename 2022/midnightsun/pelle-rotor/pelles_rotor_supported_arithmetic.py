@@ -5,7 +5,7 @@ from secrets import randbelow
 from gmpy import next_prime
 from Crypto.Util.number import bytes_to_long, long_to_bytes
 
-FLAG = bytes_to_long(b'mf{testowa_flaga}')
+FLAG = bytes_to_long(b'mf{testowa_flaga_costam_costam}')
 
 p = int(next_prime(randbelow(2**512)))
 q = int(next_prime(randbelow(2**512)))
