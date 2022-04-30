@@ -26,7 +26,7 @@ fn main() -> anyhow::Result<()> {
 
     let mut attempt = String::new();
     stdin().lock().read_line(&mut attempt)?;
-    if attempt.trim().as_bytes() == message {
+    if attempt.trim().as_bytes() == message {   
         println!("{}", include_str!("../flag.txt"));
     } else {
         println!("That was not the correct string. Sorry!");

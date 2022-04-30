@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 import os, sys, hashlib, random

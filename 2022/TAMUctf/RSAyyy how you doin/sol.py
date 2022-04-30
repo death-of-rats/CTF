@@ -1,0 +1,25 @@
+from base64 import b64decode
+from Crypto.Util.asn1 import DerSequence
+from Crypto.Util.number import bytes_to_long
+
+pub = b"MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAkagb5wjJSOJrFDkHlvZt\
+KbFjaeRQm5JUNDcctF7PhKXmuCdWIgAsWXTO0TKhqd6s0xlOGmWDUP6Szd/xdboY\
+PnFMdAdHL30aNk6DenD/WN6jr8aAqeArqQ64iXgWe55oZACbfiEisV+UemvKPvBW\
+pgAeTilwSH2kOhWvHmHLtVWwGlnOHwZwGLNGRT9drogrFRJMH0Kfz8Ds85OPwcby\
+Y/ZtBilHdlw2W3yA9vFFZj+oLH0LTs7FitRGQ7v8uqAOzyXkPWR8Yvrm8flbdRhq\
+TwFv+tR4BTQn0LeJBfWPxyIzl7eLNu03Q/wrhUfNl057+oZZwpBDlnaXVU7v0Dmy\
+BXVdlK2XWzb76OdZqyCmrFoel0M1P38C7KAyKPWDzgya0MW/R8pOH4DQx27o2PVx\
+EHRPsoPy4mhQyFjDDW7sYDkoahKOSApkZGNvfffzQWHJIFzQMIwwkFaEYFFM+zuA\
+PhOeSep8wSgSPE4NRxWCZyTMG/XTgd2PMoEKn/PC4zDM10a0PWXK9CGuZBIUv6Wp\
+c8UhJMEB3VzQlGTGPphsJ88F3pW57s3J2hlO0myaYeRgN6I0k/Hd4/5r/nfxeeuR\
+s9HuC7yw6QVzT0N2n1gq4zuh1cyVIgNeRLnMpau2uSXSeosAbl15KtB6OIlaiq2r\
+T6Vg9+j5clzaS83o1RczqFECAwEAAQ=="
+
+public_key_der = DerSequence()
+public_key_der.decode(b64decode(pub))
+
+RSA = []
+for k,v in enumerate(public_key_der):
+    RSA.append(bytes_to_long(v))
+
+print(RSA)
