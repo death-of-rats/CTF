@@ -1,0 +1,8 @@
+
+[+] Opening connection to challs.actf.co on port 31223: Done
+line=b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x04\x97\x04&W^\x03OS_\x01&\x903U|M\xf0c\xc8F\x07s\x082\xf9\xae\x11\xd7\xe8\x98=5\x1a\xd1\xb2\xea}"\x84\xc8\xe5\xf2\x8d\xfd)\xa9f!\nGuess my name and you\'ll get a flag!'
+name=b'\x97\x04&W^\x03OS_\x01&\x903U|M\xf0c\xc8F\x07s\x082\xf9\xae\x11\xd7\xe8\x98=5\x1a\xd1\xb2\xea}"\x84\xc8\xe5\xf2\x8d\xfd)\xa9f', 47
+[+] Receiving all data: Done (53B)
+[*] Closed connection to challs.actf.co port 31223
+b'\nactf{i_c0uld_be_l0nely_with_y0u_a21f8611c74b}\n\nBye!\n'
+
