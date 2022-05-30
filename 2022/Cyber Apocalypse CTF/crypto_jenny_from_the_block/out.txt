@@ -1,0 +1,6 @@
+[x] Opening connection to 134.209.178.167 on port 31243
+[x] Opening connection to 134.209.178.167 on port 31243: Trying 134.209.178.167
+[+] Opening connection to 134.209.178.167 on port 31243: Done
+b'This is Jenny! I am the heart and soul of this spaceship.\nWelcome to the debug terminal. For security purposes I will encrypt any responses.'
+b'\nIn case Jenny malfunctions say the following phrase: Melt My Eyez, See Your Future  \nThe AI system will shutdown and you will gain complete control of the spaceship.\n- Danbeer S.A.\nHTB{b451c_b10ck_c1ph3r_15_w34k!!!}\n\x07\x07\x07\x07\x07\x07\x07'
+[*] Closed connection to 134.209.178.167 port 31243

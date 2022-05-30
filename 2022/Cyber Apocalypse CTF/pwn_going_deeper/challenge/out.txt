@@ -1,0 +1,59 @@
+[x] Opening connection to 159.65.89.199 on port 32469
+[x] Opening connection to 159.65.89.199 on port 32469: Trying 159.65.89.199
+[+] Opening connection to 159.65.89.199 on port 32469: Done
+[1;36m
+
+                  Trying to leak information from the pc.. 🖥️
+
+
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   | goldenfang@d12:$ history                    |    |
+           |   |     1 ls                                    |    |
+           |   |     2 mv secret_pass.txt flag.txt           |    |
+           |   |     3 chmod -x missile_launcher.py          |    |
+           |   |     4 ls                                    |    |
+           |   |     5 history                               |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+[1;34m
+[*] Safety mechanisms are enabled!
+[*] Values are set to: a = [1], b = [2], c = [3].
+[*] If you want to continue, disable the mechanism or login as admin.
+
+1. Disable mechanisms ⚙️
+2. Login ✅
+3. Exit 🏃
+>> 
+
+[*] Username:
+[x] Receiving all data
+[x] Receiving all data: 1B
+[x] Receiving all data: 51B
+[x] Receiving all data: 153B
+[+] Receiving all data: Done (153B)
+[*] Closed connection to 159.65.89.199 port 32469
+ 
+[1;32m[+] Welcome admin! The secret message is: HTB{n0_n33d_2_ch4ng3_m3ch5_wh3n_u_h4v3_fl0w_r3d1r3ct}
+[!] For security reasons, you are logged out..
+
+

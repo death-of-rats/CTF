@@ -1,0 +1,13 @@
+[x] Opening connection to 206.189.126.144 on port 30898
+[x] Opening connection to 206.189.126.144 on port 30898: Trying 206.189.126.144
+[+] Opening connection to 206.189.126.144 on port 30898: Done
+[x] Receiving all data
+[x] Receiving all data: 1B
+[x] Receiving all data: 63B
+[x] Receiving all data: 146B
+[+] Receiving all data: Done (146B)
+[*] Closed connection to 206.189.126.144 port 30898
+ 
+[1;32m[+] Door opened, you can proceed with the passphrase: HTB{th3_g4t35_4r3_0p3n!}
+[1;5;31m[-] Invalid option! Intruder detected! 🚨 🚨
+

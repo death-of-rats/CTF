@@ -1,0 +1,25 @@
+[x] Opening connection to 157.245.47.33 on port 31872
+[x] Opening connection to 157.245.47.33 on port 31872: Trying 157.245.47.33
+[+] Opening connection to 157.245.47.33 on port 31872: Done
+b'HTB{3'
+b'HTB{34'
+b'HTB{345'
+b'HTB{345y'
+b'HTB{345y_'
+b'HTB{345y_5'
+b'HTB{345y_53'
+b'HTB{345y_53c'
+b'HTB{345y_53cr'
+b'HTB{345y_53cr3'
+b'HTB{345y_53cr37'
+b'HTB{345y_53cr37_'
+b'HTB{345y_53cr37_r'
+b'HTB{345y_53cr37_r3'
+b'HTB{345y_53cr37_r3c'
+b'HTB{345y_53cr37_r3c0'
+b'HTB{345y_53cr37_r3c0v'
+b'HTB{345y_53cr37_r3c0v3'
+b'HTB{345y_53cr37_r3c0v3r'
+b'HTB{345y_53cr37_r3c0v3ry'
+b'HTB{345y_53cr37_r3c0v3ry}'
+[*] Closed connection to 157.245.47.33 port 31872
